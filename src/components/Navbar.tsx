@@ -2,27 +2,24 @@
 
 import { useRouter } from "next/navigation";
 
-export default function HomePage() {
+export default function Navbar() {
   const router = useRouter();
 
   const handleLogout = () => {
-    // 세션 삭제
     document.cookie = "session=; Path=/; Max-Age=0";
-
-    // 로그인 화면으로 이동
     router.push("/login");
   };
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-6">
-      <h1 className="text-3xl font-bold mb-6">Home Page</h1>
+    <nav className="w-full h-14 bg-gray-100 flex items-center justify-between px-6 border-b">
+      <div className="font-bold text-xl">Link Manager</div>
 
       <button
         onClick={handleLogout}
-        className="bg-red-500 text-white py-2 px-4 rounded"
+        className="bg-red-500 text-white py-1 px-3 rounded"
       >
         로그아웃
       </button>
-    </main>
+    </nav>
   );
 }
